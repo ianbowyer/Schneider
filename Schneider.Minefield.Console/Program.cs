@@ -22,22 +22,18 @@ internal class Program
             {
                 case ConsoleKey.UpArrow:
                     inProgress = ProcessOutcome(minefieldGame.Move(Direction.Up));
-                    //Console.WriteLine("UP");
                     break;
 
                 case ConsoleKey.DownArrow:
                     inProgress = ProcessOutcome(minefieldGame.Move(Direction.Down));
-                    //Console.WriteLine("down");
                     break;
 
                 case ConsoleKey.LeftArrow:
                     inProgress = ProcessOutcome(minefieldGame.Move(Direction.Left));
-                    //Console.WriteLine("left");
                     break;
 
                 case ConsoleKey.RightArrow:
                     inProgress = ProcessOutcome(minefieldGame.Move(Direction.Right));
-                    //Console.WriteLine("right");
                     break;
 
                 case ConsoleKey.X:

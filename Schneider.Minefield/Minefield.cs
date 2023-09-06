@@ -7,18 +7,19 @@
     {
         private Random random = new Random();
 
-        private readonly int _maxSquares;
-        private readonly int _x;
-        private readonly int _y;
         private List<Coordinate> _activeMines = new List<Coordinate>();
         private List<Coordinate> _explodedMines = new List<Coordinate>();
+        private readonly int _maxSquares;
 
-        public Minefield(int x, int y)
+        public Minefield(int width, int height)
         {
-            _maxSquares = x * y;
-            _x = x;
-            _y = y;
+            _maxSquares = width * height;
+            GridWidth = width;
+            GridHeight = height;
         }
+
+        public int GridWidth { get; }
+        public int GridHeight { get; }
 
         public int MinesLeft => _activeMines.Count;
 
@@ -72,9 +73,9 @@
         {
             var sorted = _activeMines.OrderBy(x => x.X).ThenBy(x => x.Y).ToList();
             var sb = new StringBuilder();
-            for (int y = _y - 1; y >= 0; y--)
+            for (int y = GridHeight - 1; y >= 0; y--)
             {
-                for (int x = 0; x < _x; x++)
+                for (int x = 0; x < GridWidth; x++)
                 {
                     if (_activeMines.Any(a => a.Equals(new Coordinate(x, y))))
                     {

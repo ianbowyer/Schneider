@@ -42,12 +42,12 @@
         {
             return direction switch
             {
-                Direction.Up => CurrentPosition.Y < 7,
+                Direction.Up => CurrentPosition.Y < CurrentMinefield.GridHeight - 1,
                 Direction.Down => CurrentPosition.Y > 0,
                 Direction.Left => CurrentPosition.X > 0,
-                Direction.Right => CurrentPosition.X < 7,
+                Direction.Right => CurrentPosition.X < CurrentMinefield.GridWidth - 1,
                 _ => false,
-            };
+            }; ;
         }
 
         private MoveOutcome GetMoveOutcome(Coordinate newCoordinate)
@@ -62,7 +62,7 @@
                 return MoveOutcome.MineExplodes;
             }
 
-            if (CurrentPosition.Y == 6)
+            if (CurrentPosition.Y == CurrentMinefield.GridHeight - 2)
             {
                 Score++;
                 CurrentPosition = newCoordinate;
@@ -97,12 +97,5 @@
         Down = 'D',
         Left = 'L',
         Right = 'R',
-    }
-
-    public enum MinefieldSquareStatus
-    {
-        Empty = 'E',
-        ActiveMine = 'M',
-        ExplodedMine = '*',
     }
 }
