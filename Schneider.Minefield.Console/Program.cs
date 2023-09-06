@@ -11,7 +11,7 @@ internal class Program
         Console.WriteLine("Keys are:  Up, Down, Left, Right, x to exit");
 
         minefieldGame.CurrentMinefield.PlantMines(20);
-        Console.Write(minefieldGame.CurrentMinefield.ShowMap());
+        // Console.Write(minefieldGame.CurrentMinefield.ShowMap());
 
         var inProgress = true;
         while (inProgress)
